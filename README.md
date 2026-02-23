@@ -21,6 +21,7 @@
 - ⚡ Fluent API for chaining prompts, spinners, and output into elegant multi-step workflows with a single expression
 
 ## 📚 Table of Contents
+
 - [Description](#-description)
 - [Tech Stack](#-tech-stack)
 - [Features](#-features)
@@ -35,6 +36,7 @@
 - [Acknowledgments](#-acknowledgments)
 
 ## 📖 Description
+
 Bean is a comprehensive, **zero-dependency** terminal interaction library that gives CLI developers everything they need to build beautiful, interactive command-line experiences — without pulling in a single runtime dependency.
 
 Unlike traditional CLI toolkits that stitch together `chalk`, `ora`, `inquirer`, `listr2`, and `ink` (often totaling 200+ transitive dependencies), Bean consolidates prompts, spinners, progress bars, task runners, styled output, tables, trees, diffs, and more into a single, cohesive package built from the ground up in TypeScript.
@@ -52,27 +54,28 @@ Bean follows **Clean Architecture** principles with clearly separated domain, ap
 
 ## 🛠️ Tech Stack
 
-| Category | Technologies |
-|----------|-------------|
-| **Language** | TypeScript |
-| **Runtime** | Node.js |
-| **Build Tool** | Rollup |
-| **Testing** | Vitest |
-| **Linting** | ESLint, Prettier |
-| **CI/CD** | GitHub Actions, Semantic Release |
-| **Package Manager** | npm |
+| Category            | Technologies                     |
+| ------------------- | -------------------------------- |
+| **Language**        | TypeScript                       |
+| **Runtime**         | Node.js                          |
+| **Build Tool**      | Rollup                           |
+| **Testing**         | Vitest                           |
+| **Linting**         | ESLint, Prettier                 |
+| **CI/CD**           | GitHub Actions, Semantic Release |
+| **Package Manager** | npm                              |
 
 ## 🚀 Features
-- ✨ ****Interactive Prompts** — text, password, confirm, toggle, number, rating, select, multiselect, group-multiselect, rawlist, expand, autocomplete, date, list, tree-select, editor, and schema-driven prompts with validation, abort signals, timeouts, and fallback values**
-- ✨ ****Spinner System** — manual spinners with succeed/fail/warn/info/stop states, prefix support, elapsed time tracking, state change callbacks, `spinnerPromise` for auto-managed task spinners, and a spinner manager for concurrent hierarchical spinners**
-- ✨ ****Progress Bars** — static snapshots, animated progress with custom characters, render callbacks, multi-progress with concurrent bars, and hierarchical parent-child progress tracking**
-- ✨ ****Task Runner** — sequential and concurrent task execution with nested subtasks, retries, conditional `when` guards, rollback on failure, structured lifecycle events, configurable log prefixes, and optional persisted log entries**
-- ✨ ****Rich Output Formatting** — tables with ANSI-aware column alignment, tree rendering, JSON pretty/compact output, LCS-based text diffs, notes, boxes, dividers, columns, hyperlinks, and log levels (info/success/warn/error)**
-- ✨ ****Full Styling Engine** — named colors, hex, RGB, 256-color palette, bright variants, background colors, bold/italic/underline/strikethrough/overline/inverse/dim decorations, fluent style chaining, tagged template literals, custom themes, gradient text, and automatic color level detection with graceful downgrading**
-- ✨ ****Fluent API** — chain intro → prompts → spinners → output → outro into a single expressive workflow with `bean.fluent()`**
-- ✨ ****Zero-Dependency Image Renderer** — render pixel arrays as ASCII/Unicode art directly in the terminal without external image libraries**
-- ✨ ****Dual Module Output** — ships both ESM and CJS builds with full TypeScript declarations and source maps**
-- ✨ ****Fully Injectable Architecture** — every I/O port (clock, input, output, editor, theme, prompt style) is abstracted behind interfaces for deterministic testing with fake adapters**
+
+- ✨ \***\*Interactive Prompts** — text, password, confirm, toggle, number, rating, select, multiselect, group-multiselect, rawlist, expand, autocomplete, date, list, tree-select, editor, and schema-driven prompts with validation, abort signals, timeouts, and fallback values\*\*
+- ✨ \***\*Spinner System** — manual spinners with succeed/fail/warn/info/stop states, prefix support, elapsed time tracking, state change callbacks, `spinnerPromise` for auto-managed task spinners, and a spinner manager for concurrent hierarchical spinners\*\*
+- ✨ \***\*Progress Bars** — static snapshots, animated progress with custom characters, render callbacks, multi-progress with concurrent bars, and hierarchical parent-child progress tracking\*\*
+- ✨ \***\*Task Runner** — sequential and concurrent task execution with nested subtasks, retries, conditional `when` guards, rollback on failure, structured lifecycle events, configurable log prefixes, and optional persisted log entries\*\*
+- ✨ \***\*Rich Output Formatting** — tables with ANSI-aware column alignment, tree rendering, JSON pretty/compact output, LCS-based text diffs, notes, boxes, dividers, columns, hyperlinks, and log levels (info/success/warn/error)\*\*
+- ✨ \***\*Full Styling Engine** — named colors, hex, RGB, 256-color palette, bright variants, background colors, bold/italic/underline/strikethrough/overline/inverse/dim decorations, fluent style chaining, tagged template literals, custom themes, gradient text, and automatic color level detection with graceful downgrading\*\*
+- ✨ \***\*Fluent API** — chain intro → prompts → spinners → output → outro into a single expressive workflow with `bean.fluent()`\*\*
+- ✨ \***\*Zero-Dependency Image Renderer** — render pixel arrays as ASCII/Unicode art directly in the terminal without external image libraries\*\*
+- ✨ \***\*Dual Module Output** — ships both ESM and CJS builds with full TypeScript declarations and source maps\*\*
+- ✨ \***\*Fully Injectable Architecture** — every I/O port (clock, input, output, editor, theme, prompt style) is abstracted behind interfaces for deterministic testing with fake adapters\*\*
 
 ## 🏗 Architecture
 
@@ -273,6 +276,7 @@ bean/
 - npm >= 9.0.0
 
 ## 🛠 Installation
+
 ```bash
 # Install with npm
 npm install @elsikora/bean
@@ -285,6 +289,7 @@ pnpm add @elsikora/bean
 ```
 
 ## 💡 Usage
+
 ### Quick Start
 
 ```typescript
@@ -307,37 +312,28 @@ const bean = createBeanAdapterFactory();
 
 // Text input with validation
 const name = await bean.text({
-  message: "What is your project name?",
-  placeholder: "my-awesome-app",
-  validate: (value) => value.length < 2 ? "Name too short" : null,
+	message: "What is your project name?",
+	placeholder: "my-awesome-app",
+	validate: (value) => (value.length < 2 ? "Name too short" : null),
 });
 
 // Select with search
 const framework = await bean.select({
-  message: "Pick a framework:",
-  isSearchEnabled: true,
-  options: [
-    new SelectOptionValueObject({ label: "React", value: "react" }),
-    new SelectOptionValueObject({ label: "Vue", value: "vue" }),
-    new SelectOptionValueObject({ label: "Svelte", value: "svelte" }),
-  ],
+	message: "Pick a framework:",
+	isSearchEnabled: true,
+	options: [new SelectOptionValueObject({ label: "React", value: "react" }), new SelectOptionValueObject({ label: "Vue", value: "vue" }), new SelectOptionValueObject({ label: "Svelte", value: "svelte" })],
 });
 
 // Multiselect with groups
 const features = await bean.groupMultiselect({
-  message: "Select features:",
-  options: [
-    new SelectOptionValueObject({ group: "Auth", label: "OAuth 2.0", value: "oauth" }),
-    new SelectOptionValueObject({ group: "Auth", label: "JWT", value: "jwt" }),
-    new SelectOptionValueObject({ group: "DB", label: "PostgreSQL", value: "postgres" }),
-    new SelectOptionValueObject({ group: "DB", label: "Redis", value: "redis" }),
-  ],
+	message: "Select features:",
+	options: [new SelectOptionValueObject({ group: "Auth", label: "OAuth 2.0", value: "oauth" }), new SelectOptionValueObject({ group: "Auth", label: "JWT", value: "jwt" }), new SelectOptionValueObject({ group: "DB", label: "PostgreSQL", value: "postgres" }), new SelectOptionValueObject({ group: "DB", label: "Redis", value: "redis" })],
 });
 
 // Confirm
 const shouldInstall = await bean.confirm({
-  message: "Install dependencies now?",
-  isDefaultValue: true,
+	message: "Install dependencies now?",
+	isDefaultValue: true,
 });
 
 bean.dispose();
@@ -353,13 +349,13 @@ spinner.succeed("Compilation complete");
 
 // Auto-managed spinner
 const result = await bean.spinnerPromise({
-  text: "Installing dependencies...",
-  successText: "Dependencies installed",
-  failText: "Installation failed",
-  task: async () => {
-    await installDeps();
-    return "142 packages";
-  },
+	text: "Installing dependencies...",
+	successText: "Dependencies installed",
+	failText: "Installation failed",
+	task: async () => {
+		await installDeps();
+		return "142 packages";
+	},
 });
 
 // Concurrent spinner manager
@@ -374,8 +370,8 @@ api.succeed("API listening on :3000");
 // Animated progress bar
 const bar = bean.createProgress({ label: "Downloading", total: 100 });
 for (let i = 0; i < 100; i++) {
-  await delay(50);
-  bar.increment();
+	await delay(50);
+	bar.increment();
 }
 bar.stop();
 ```
@@ -384,25 +380,42 @@ bar.stop();
 
 ```typescript
 const summary = await bean.runTasks({
-  isPersistLogs: true,
-  logPrefix: "[release]",
-  onEvent: (event) => console.log(event.status, event.taskPath),
-  tasks: [
-    {
-      title: "Build",
-      run: async () => { /* build logic */ },
-      subtasks: [
-        { title: "Lint", run: async () => { /* lint */ } },
-        { title: "Test", run: async () => { /* test */ }, retries: 2 },
-      ],
-    },
-    {
-      title: "Deploy",
-      run: async () => { /* deploy */ },
-      rollback: async () => { /* rollback */ },
-      when: () => process.env.CI === "true",
-    },
-  ],
+	isPersistLogs: true,
+	logPrefix: "[release]",
+	onEvent: (event) => console.log(event.status, event.taskPath),
+	tasks: [
+		{
+			title: "Build",
+			run: async () => {
+				/* build logic */
+			},
+			subtasks: [
+				{
+					title: "Lint",
+					run: async () => {
+						/* lint */
+					},
+				},
+				{
+					title: "Test",
+					run: async () => {
+						/* test */
+					},
+					retries: 2,
+				},
+			],
+		},
+		{
+			title: "Deploy",
+			run: async () => {
+				/* deploy */
+			},
+			rollback: async () => {
+				/* rollback */
+			},
+			when: () => process.env.CI === "true",
+		},
+	],
 });
 // summary: { succeeded: 3, failed: 0, skipped: 1, logs: [...] }
 ```
@@ -413,29 +426,31 @@ const summary = await bean.runTasks({
 let projectName = "";
 let framework = "";
 
-await bean.fluent()
-  .intro("Project Scaffolding Wizard")
-  .text({
-    message: "Project name?",
-    onResolved: (v) => { projectName = v ?? "my-project"; },
-  })
-  .select({
-    message: "Framework?",
-    onResolved: (v) => { framework = v ?? "none"; },
-    options: [
-      new SelectOptionValueObject({ label: "React", value: "react" }),
-      new SelectOptionValueObject({ label: "Vue", value: "vue" }),
-    ],
-  })
-  .spinner({
-    text: "Scaffolding...",
-    task: async (handle) => {
-      handle.update("Creating files...");
-      await createProject();
-    },
-  })
-  .outro(`Project "${projectName}" created with ${framework}!`)
-  .run();
+await bean
+	.fluent()
+	.intro("Project Scaffolding Wizard")
+	.text({
+		message: "Project name?",
+		onResolved: (v) => {
+			projectName = v ?? "my-project";
+		},
+	})
+	.select({
+		message: "Framework?",
+		onResolved: (v) => {
+			framework = v ?? "none";
+		},
+		options: [new SelectOptionValueObject({ label: "React", value: "react" }), new SelectOptionValueObject({ label: "Vue", value: "vue" })],
+	})
+	.spinner({
+		text: "Scaffolding...",
+		task: async (handle) => {
+			handle.update("Creating files...");
+			await createProject();
+		},
+	})
+	.outro(`Project "${projectName}" created with ${framework}!`)
+	.run();
 ```
 
 ### Styling
@@ -485,22 +500,22 @@ bean.divider();
 <details>
 <summary>Click to expand</summary>
 
-| Task / Feature | Status |
-|---|---|
-| Core prompt runtime (text, select, multiselect, confirm) | ✅ Done |
-| Spinner system with manager and hierarchical labels | ✅ Done |
-| Progress bars with multi-progress and hierarchy | ✅ Done |
-| Task runner with subtasks, retries, and rollback | ✅ Done |
-| Full ANSI styling engine with gradient support | ✅ Done |
-| Fluent API for chained workflows | ✅ Done |
-| Rich output (table, tree, diff, JSON, box, note) | ✅ Done |
-| Schema-driven prompt generation (`promptFromSchema`) | ✅ Done |
-| Dual ESM/CJS builds with TypeScript declarations | ✅ Done |
-| Extract BeanAdapter into fully modular sub-services | ✅ Done |
-| Complete BeanAdapter modularization (prompt strategies) | 🚧 In Progress |
-| Architecture tests enforcing layer boundaries | 🚧 In Progress |
-| Plugin system for custom prompt types | 🚧 In Progress |
-| Internationalization (i18n) for prompt messages | 🚧 In Progress |
+| Task / Feature                                           | Status         |
+| -------------------------------------------------------- | -------------- |
+| Core prompt runtime (text, select, multiselect, confirm) | ✅ Done        |
+| Spinner system with manager and hierarchical labels      | ✅ Done        |
+| Progress bars with multi-progress and hierarchy          | ✅ Done        |
+| Task runner with subtasks, retries, and rollback         | ✅ Done        |
+| Full ANSI styling engine with gradient support           | ✅ Done        |
+| Fluent API for chained workflows                         | ✅ Done        |
+| Rich output (table, tree, diff, JSON, box, note)         | ✅ Done        |
+| Schema-driven prompt generation (`promptFromSchema`)     | ✅ Done        |
+| Dual ESM/CJS builds with TypeScript declarations         | ✅ Done        |
+| Extract BeanAdapter into fully modular sub-services      | ✅ Done        |
+| Complete BeanAdapter modularization (prompt strategies)  | 🚧 In Progress |
+| Architecture tests enforcing layer boundaries            | 🚧 In Progress |
+| Plugin system for custom prompt types                    | 🚧 In Progress |
+| Internationalization (i18n) for prompt messages          | 🚧 In Progress |
 
 </details>
 
@@ -536,9 +551,11 @@ Absolutely. Pass a custom `promptStylePort` to change pointer symbols, checkmark
 </details>
 
 ## 🔒 License
+
 This project is licensed under **MIT**.
 
 ## 🙏 Acknowledgments
+
 - Inspired by the excellent work of [clack](https://github.com/natemoo-re/clack), [inquirer](https://github.com/SBoudrias/Inquirer.js), [ora](https://github.com/sindresorhus/ora), [chalk](https://github.com/chalk/chalk), and [listr2](https://github.com/listr2/listr2)
 - Clean Architecture principles from Robert C. Martin's writings
 - ANSI escape code handling informed by the [ECMA-48](https://www.ecma-international.org/publications-and-standards/standards/ecma-48/) standard
