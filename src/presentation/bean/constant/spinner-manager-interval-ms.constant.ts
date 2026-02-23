@@ -1,0 +1,1 @@
+export const SPINNER_MANAGER_INTERVAL_MS_CONSTANT: number = 80;

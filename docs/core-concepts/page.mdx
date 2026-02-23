@@ -1,0 +1,6 @@
+# Core Concepts
+
+- `BeanAdapter` is the public facade for terminal interactions.
+- Prompt APIs return `null` when cancelled and values otherwise.
+- Rendering APIs are split by concern: messages, notes/boxes, table/tree/json/diff, and style helpers.
+- Runtime wiring is centralized in infrastructure composition to keep object creation explicit.

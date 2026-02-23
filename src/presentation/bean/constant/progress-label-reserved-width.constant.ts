@@ -1,0 +1,1 @@
+export const PROGRESS_LABEL_RESERVED_WIDTH_CONSTANT: number = 20;

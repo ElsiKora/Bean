@@ -1,0 +1,18 @@
+# Getting Started
+
+## Install
+
+```bash
+npm install @elsikora/bean
+```
+
+## Basic Usage
+
+```ts
+import { createBeanAdapterFactory } from "@elsikora/bean";
+
+const bean = createBeanAdapterFactory({ environment: process.env });
+bean.intro({ message: "Hello from bean" });
+bean.outro({ message: "Done" });
+bean.dispose();
+```

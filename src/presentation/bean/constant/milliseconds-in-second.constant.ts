@@ -1,0 +1,1 @@
+export const MILLISECONDS_IN_SECOND_CONSTANT: number = 1000;

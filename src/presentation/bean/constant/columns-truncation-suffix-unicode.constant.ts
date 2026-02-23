@@ -1,0 +1,1 @@
+export const COLUMNS_TRUNCATION_SUFFIX_UNICODE_CONSTANT: string = "…";

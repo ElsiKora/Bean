@@ -1,0 +1,1 @@
+export const PROGRESS_PERCENT_PADDING_CONSTANT: number = 3;
