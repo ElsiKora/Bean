@@ -1,6 +1,6 @@
 {
 	"name": "@elsikora/bean",
-	"version": "0.1.0",
+	"version": "1.0.0-dev.2",
 	"description": "Zero-dependency terminal interaction library for prompts, spinners, and rich CLI output.",
 	"keywords": [
 		"cli",
@@ -31,6 +31,7 @@
 		"build": "npm run prebuild && rollup -c",
 		"build:test": "npm run prebuild && rollup -c rollup.test.config.js",
 		"clean": "rimraf dist coverage .turbo",
+		"commit": "cz",
 		"format": "prettier --check .",
 		"format:fix": "prettier --write .",
 		"lint": "eslint ./",
@@ -59,7 +60,16 @@
 		"validate:test": "npm run test",
 		"validate:types": "npm run typecheck"
 	},
+	"config": {
+		"commitizen": {
+			"path": "@elsikora/commitizen-plugin-commitlint-ai"
+		}
+	},
 	"devDependencies": {
+		"@commitlint/cli": "^20.4.2",
+		"@commitlint/config-conventional": "^20.4.2",
+		"@elsikora/cladi": "^2.1.2",
+		"@elsikora/commitizen-plugin-commitlint-ai": "^2.5.0",
 		"@elsikora/eslint-config": "^3.10.0",
 		"@rollup/plugin-typescript": "^12.1.2",
 		"@saithodev/semantic-release-backmerge": "^3.2.1",
@@ -71,6 +81,7 @@
 		"@semantic-release/release-notes-generator": "^14.1.0",
 		"@types/node": "^22.14.0",
 		"@vitest/coverage-v8": "^4.0.18",
+		"commitizen": "^4.3.1",
 		"conventional-changelog-conventionalcommits": "^9.1.0",
 		"eslint": "^10.0.1",
 		"eslint-plugin-n": "^17.24.0",
@@ -85,5 +96,8 @@
 		"tslib": "^2.8.1",
 		"typescript": "^5.8.3",
 		"vitest": "^4.0.18"
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }
