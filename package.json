@@ -72,7 +72,7 @@
 		"@elsikora/commitizen-plugin-commitlint-ai": "^2.5.0",
 		"@elsikora/eslint-config": "^3.10.0",
 		"@rollup/plugin-typescript": "^12.1.2",
-		"@saithodev/semantic-release-backmerge": "^3.2.1",
+		"@saithodev/semantic-release-backmerge": "^4.0.1",
 		"@semantic-release/changelog": "^6.0.3",
 		"@semantic-release/commit-analyzer": "^13.0.1",
 		"@semantic-release/git": "^10.0.1",
